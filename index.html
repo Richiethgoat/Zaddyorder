@@ -1,186 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zaddy Richie Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>ZADDY RICHIE STORE</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="overlay"></div>
+
   <nav>
     <a href="#store">Store</a>
-    <a href="#bots">Free Bots</a>
+    <a href="#bots">Bots</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <header>
-    <h1 class="logo">Zaddy Richie Store</h1>
-    <p class="subtitle">Premium Services. Real Value.</p>
+    <div class="logo">ZADDY RICHIE STORE</div>
+    <div class="subtitle">Best services for you</div>
   </header>
 
   <section id="store">
-    <div class="product" data-name="VPS Hosting">
-      <h3>VPS Hosting</h3>
-      <p>Affordable and fast VPS hosting.</p>
+    <div class="product">
+      <h3>Service 1</h3>
+      <p>Awesome feature set included.</p>
       <div class="qty-container">
-        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-        <input type="number" value="0" min="0" readonly />
-        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+        <button class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button class="qty-btn plus">+</button>
       </div>
-      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
+      <button class="btn">Add to Cart</button>
     </div>
-
-    <div class="product" data-name="Channel Boosting">
-      <h3>Channel Boost</h3>
-      <p>Boost your Telegram or WhatsApp channel.</p>
+    <div class="product">
+      <h3>Service 2</h3>
+      <p>Another great feature.</p>
       <div class="qty-container">
-        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-        <input type="number" value="0" min="0" readonly />
-        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+        <button class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button class="qty-btn plus">+</button>
       </div>
-      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
-    </div>
-
-    <div class="product" data-name="WhatsApp Bot Selling">
-      <h3>Custom WhatsApp Bot</h3>
-      <p>Get a powerful bot tailored for you.</p>
-      <div class="qty-container">
-        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-        <input type="number" value="0" min="0" readonly />
-        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-      </div>
-      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
-    </div>
-
-    <div class="product" data-name="Bot-Making Course">
-      <h3>Bot-Making Course</h3>
-      <p>Learn how to create your own bot.</p>
-      <div class="qty-container">
-        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-        <input type="number" value="0" min="0" readonly />
-        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-      </div>
-      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
+      <button class="btn">Add to Cart</button>
     </div>
   </section>
 
-  <div class="view-cart-btn-container">
-    <button class="btn view-cart-btn" onclick="openCart()">View Cart</button>
-  </div>
-
   <section id="bots">
-    <h2>Free WhatsApp Bots</h2>
+    <h2>Bots</h2>
     <div class="product">
-      <h3>Akane Server 1</h3>
-      <a class="btn" href="https://t.me/Bossbaby2bot" target="_blank" rel="noopener noreferrer">Try Now</a>
+      <h3>WhatsApp Bot</h3>
+      <p>Automate your messages with style.</p>
+      <button class="btn">Add to Cart</button>
     </div>
     <div class="product">
-      <h3>Akane Server 2</h3>
-      <a class="btn" href="https://t.me/Richie_new_bot" target="_blank" rel="noopener noreferrer">Try Now</a>
-    </div>
-    <div class="product">
-      <h3>Levi Bug V4</h3>
-      <a class="btn" href="https://t.me/Levi_wa_cbot" target="_blank" rel="noopener noreferrer">Try Now</a>
+      <h3>Telegram Bot</h3>
+      <p>Smart and reliable bot service.</p>
+      <button class="btn">Add to Cart</button>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>DM me on <a class="btn" href="https://t.me/Hmmletts" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+    <a href="mailto:yourmail@example.com" class="btn">Email Us</a>
   </section>
 
-  <!-- Cart Modal -->
-  <div id="cartModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeCart()">×</span>
-      <h2>Your Cart</h2>
-      <ul id="cartItems"></ul>
-      <input type="text" id="customerName" placeholder="Enter your name" />
-      <button class="btn place-order-btn" onclick="placeOrder()">Place Order</button>
-    </div>
-  </div>
-
-<script>
-  let cart = [];
-
-  function changeQty(button, delta) {
-    const input = button.parentElement.querySelector('input');
-    let val = parseInt(input.value);
-    val += delta;
-    if (val < 0) val = 0;
-    input.value = val;
-  }
-
-  function addToCart(button) {
-    const productDiv = button.closest('.product');
-    const name = productDiv.dataset.name;
-    const qty = parseInt(productDiv.querySelector('input').value);
-    if (qty <= 0) {
-      alert('Please select quantity before adding to cart.');
-      return;
-    }
-    // Check if product already in cart
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-      existing.qty += qty;
-    } else {
-      cart.push({name, qty});
-    }
-    // Reset qty input
-    productDiv.querySelector('input').value = 0;
-    alert(`${qty} x ${name} added to cart.`);
-  }
-
-  function openCart() {
-    const modal = document.getElementById('cartModal');
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-    if (cart.length === 0) {
-      cartItems.innerHTML = '<li>Your cart is empty.</li>';
-    } else {
-      cart.forEach((item, i) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.qty} x ${item.name}`;
-        cartItems.appendChild(li);
+  <script>
+    // Quantity buttons logic
+    document.querySelectorAll('.qty-container').forEach(container => {
+      const input = container.querySelector('input[type="number"]');
+      container.querySelector('.plus').addEventListener('click', () => {
+        input.value = Math.min(999, Number(input.value) + 1);
       });
-    }
-    modal.style.display = 'block';
-  }
-
-  function closeCart() {
-    document.getElementById('cartModal').style.display = 'none';
-  }
-
-  function placeOrder() {
-    const name = document.getElementById('customerName').value.trim();
-    if (!name) {
-      alert('Please enter your name.');
-      return;
-    }
-    if (cart.length === 0) {
-      alert('Your cart is empty.');
-      return;
-    }
-    let message = `New Order from ${name}:\n\n`;
-    cart.forEach((item, i) => {
-      message += `${i+1}. ${item.qty} x ${item.name}\n`;
+      container.querySelector('.minus').addEventListener('click', () => {
+        input.value = Math.max(1, Number(input.value) - 1);
+      });
     });
-    alert(message + '\n\nThank you for your order! We will contact you soon.');
-    // Clear cart & name
-    cart = [];
-    document.getElementById('customerName').value = '';
-    closeCart();
-  }
-
-  // Close modal if clicking outside content
-  window.onclick = function(event) {
-    const modal = document.getElementById('cartModal');
-    if (event.target === modal) {
-      closeCart();
-    }
-  }
-</script>
+  </script>
 </body>
 </html>
