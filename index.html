@@ -2,227 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zaddy Richie Marketplace</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-    nav {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: #0f0;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .logo {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 2rem;
-      color: #0f0;
-    }
-    .typing {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #ccc;
-    }
-    #store {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .product {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,255,0,0.2);
-    }
-    .product h3 {
-      margin: 0.5rem 0;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      background: #0f0;
-      color: #000;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .view-cart-btn {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-    }
-    #cartModal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      color: #fff;
-      padding: 2rem;
-      z-index: 1000;
-    }
-    #cartModal h2 {
-      text-align: center;
-    }
-    #cartItems {
-      margin: 1rem 0;
-    }
-    .close-btn {
-      float: right;
-      cursor: pointer;
-      color: red;
-      font-size: 1.5rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      border: none;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #000;
-      margin-top: 2rem;
-      color: #aaa;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zaddy Richie Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+  <div class="overlay"></div>
   <nav>
     <a href="#store">Store</a>
     <a href="#bots">Free Bots</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <h1 class="logo">Zaddy Richie Store</h1>
-  <div class="typing">Premium Services. Real Value.</div>
+  <header>
+    <h1 class="logo">Zaddy Richie Store</h1>
+    <p class="subtitle">Premium Services. Real Value.</p>
+  </header>
 
   <section id="store">
-    <div class="product">
+    <div class="product" data-name="VPS Hosting">
       <h3>VPS Hosting</h3>
       <p>Affordable and fast VPS hosting.</p>
-      <button class="btn" onclick="addToCart('VPS Hosting')">Add to Cart</button>
+      <div class="qty-container">
+        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+        <input type="number" value="0" min="0" readonly />
+        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
     </div>
-    <div class="product">
+
+    <div class="product" data-name="Channel Boosting">
       <h3>Channel Boost</h3>
       <p>Boost your Telegram or WhatsApp channel.</p>
-      <button class="btn" onclick="addToCart('Channel Boosting')">Add to Cart</button>
+      <div class="qty-container">
+        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+        <input type="number" value="0" min="0" readonly />
+        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
     </div>
-    <div class="product">
+
+    <div class="product" data-name="WhatsApp Bot Selling">
       <h3>Custom WhatsApp Bot</h3>
       <p>Get a powerful bot tailored for you.</p>
-      <button class="btn" onclick="addToCart('WhatsApp Bot Selling')">Add to Cart</button>
+      <div class="qty-container">
+        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+        <input type="number" value="0" min="0" readonly />
+        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
     </div>
-    <div class="product">
+
+    <div class="product" data-name="Bot-Making Course">
       <h3>Bot-Making Course</h3>
       <p>Learn how to create your own bot.</p>
-      <button class="btn" onclick="addToCart('Bot-Making Course')">Add to Cart</button>
+      <div class="qty-container">
+        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+        <input type="number" value="0" min="0" readonly />
+        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="btn add-btn" onclick="addToCart(this)">Add to Cart</button>
     </div>
   </section>
 
-  <div class="view-cart-btn">
-    <button class="btn" onclick="openCart()">View Cart</button>
+  <div class="view-cart-btn-container">
+    <button class="btn view-cart-btn" onclick="openCart()">View Cart</button>
   </div>
 
   <section id="bots">
-    <h2 style="text-align:center;">Free WhatsApp Bots</h2>
+    <h2>Free WhatsApp Bots</h2>
     <div class="product">
       <h3>Akane Server 1</h3>
-      <a class="btn" href="https://t.me/Bossbaby2bot" target="_blank">Try Now</a>
+      <a class="btn" href="https://t.me/Bossbaby2bot" target="_blank" rel="noopener noreferrer">Try Now</a>
     </div>
     <div class="product">
       <h3>Akane Server 2</h3>
-      <a class="btn" href="https://t.me/Richie_new_bot" target="_blank">Try Now</a>
+      <a class="btn" href="https://t.me/Richie_new_bot" target="_blank" rel="noopener noreferrer">Try Now</a>
     </div>
     <div class="product">
       <h3>Levi Bug V4</h3>
-      <a class="btn" href="https://t.me/Levi_wa_cbot" target="_blank">Try Now</a>
+      <a class="btn" href="https://t.me/Levi_wa_cbot" target="_blank" rel="noopener noreferrer">Try Now</a>
     </div>
   </section>
 
   <section id="contact">
-    <h2 style="text-align:center; margin-top:3rem;">Contact</h2>
-    <p style="text-align:center;">DM me on <a class="btn" href="https://t.me/Hmmletts" target="_blank">Telegram</a></p>
+    <h2>Contact</h2>
+    <p>DM me on <a class="btn" href="https://t.me/Hmmletts" target="_blank" rel="noopener noreferrer">Telegram</a></p>
   </section>
 
-  <footer>
-    © 2025 Zaddy Richie. All rights reserved.
-  </footer>
-
   <!-- Cart Modal -->
-  <div id="cartModal">
-    <span class="close-btn" onclick="closeCart()">×</span>
-    <h2>Your Cart</h2>
-    <ul id="cartItems"></ul>
-    <input type="text" id="customerName" placeholder="Enter your name" required />
-    <button class="btn" onclick="sendOrder()">Place Order via Telegram</button>
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeCart()">×</span>
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <input type="text" id="customerName" placeholder="Enter your name" />
+      <button class="btn place-order-btn" onclick="placeOrder()">Place Order</button>
+    </div>
   </div>
 
-  <script>
-    let cart = [];
+<script>
+  let cart = [];
 
-    function addToCart(item) {
-      cart.push(item);
-      alert(item + " added to cart!");
+  function changeQty(button, delta) {
+    const input = button.parentElement.querySelector('input');
+    let val = parseInt(input.value);
+    val += delta;
+    if (val < 0) val = 0;
+    input.value = val;
+  }
+
+  function addToCart(button) {
+    const productDiv = button.closest('.product');
+    const name = productDiv.dataset.name;
+    const qty = parseInt(productDiv.querySelector('input').value);
+    if (qty <= 0) {
+      alert('Please select quantity before adding to cart.');
+      return;
     }
-
-    function openCart() {
-      const modal = document.getElementById("cartModal");
-      const cartList = document.getElementById("cartItems");
-      cartList.innerHTML = "";
-
-      if (cart.length === 0) {
-        cartList.innerHTML = "<li>Your cart is empty.</li>";
-      } else {
-        cart.forEach((item, index) => {
-          const li = document.createElement("li");
-          li.textContent = `${index + 1}. ${item}`;
-          cartList.appendChild(li);
-        });
-      }
-
-      modal.style.display = "block";
+    // Check if product already in cart
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({name, qty});
     }
+    // Reset qty input
+    productDiv.querySelector('input').value = 0;
+    alert(`${qty} x ${name} added to cart.`);
+  }
 
-    function closeCart() {
-      document.getElementById("cartModal").style.display = "none";
+  function openCart() {
+    const modal = document.getElementById('cartModal');
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    if (cart.length === 0) {
+      cartItems.innerHTML = '<li>Your cart is empty.</li>';
+    } else {
+      cart.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.qty} x ${item.name}`;
+        cartItems.appendChild(li);
+      });
     }
+    modal.style.display = 'block';
+  }
 
-    function sendOrder() {
-      const name = document.getElementById("customerName").value.trim();
-      if (!name || cart.length === 0) {
-        alert("Please enter your name and add at least one item.");
-        return;
-      }
+  function closeCart() {
+    document.getElementById('cartModal').style.display = 'none';
+  }
 
-      const orderItems = cart.map((item, i) => `<b><font color="red">${i + 1}. ${item}</font></b>`).join("%0A");
-      const message = `<u><b><font color="blue">New Order from ${name}</font></b></u>%0A%0A${orderItems}`;
+  function placeOrder() {
+    const name = document.getElementById('customerName').value.trim();
+    if (!name) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (cart.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+    let message = `New Order from ${name}:\n\n`;
+    cart.forEach((item, i) => {
+      message += `${i+1}. ${item.qty} x ${item.name}\n`;
+    });
+    alert(message + '\n\nThank you for your order! We will contact you soon.');
+    // Clear cart & name
+    cart = [];
+    document.getElementById('customerName').value = '';
+    closeCart();
+  }
 
-      const telegramURL = `https://t.me/Daddyxriricbot?start=${encodeURIComponent(message)}`;
-      window.open(telegramURL, "_blank");
-      cart = [];
+  // Close modal if clicking outside content
+  window.onclick = function(event) {
+    const modal = document.getElementById('cartModal');
+    if (event.target === modal) {
       closeCart();
     }
-  </script>
+  }
+</script>
 </body>
 </html>
