@@ -218,7 +218,7 @@
       const orderItems = cart.map((item, i) => `<b><font color="red">${i + 1}. ${item}</font></b>`).join("%0A");
       const message = `<u><b><font color="blue">New Order from ${name}</font></b></u>%0A%0A${orderItems}`;
 
-      const telegramURL = `https://t.me/YOUR_BOT_USERNAME?start=${encodeURIComponent(message)}`;
+      const telegramURL = `https://t.me/Daddyxriricbot?start=${encodeURIComponent(message)}`;
       window.open(telegramURL, "_blank");
       cart = [];
       closeCart();
