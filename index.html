@@ -1,112 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZADDY RICHIE STORE</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKANE PAIRING SITE - WhatsApp Bot Deployment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </head>
 <body>
-
-  <div class="overlay"></div>
-
-  <nav>
-    <a href="#store">Store</a>
-    <a href="#bots">Bots</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <header>
-    <div class="logo">ZADDY RICHIE STORE</div>
-    <div class="subtitle typing" id="typingText"></div>
-  </header>
-
-  <section id="store">
-    <div class="product">
-      <h3>Service 1</h3>
-      <p>Awesome feature set included.</p>
-      <div class="qty-container">
-        <button class="qty-btn minus">-</button>
-        <input type="number" min="1" value="1" />
-        <button class="qty-btn plus">+</button>
-      </div>
-      <button class="btn order-btn" data-item="Service 1">Add to Cart</button>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
     </div>
-    <div class="product">
-      <h3>Service 2</h3>
-      <p>Another great feature.</p>
-      <div class="qty-container">
-        <button class="qty-btn minus">-</button>
-        <input type="number" min="1" value="1" />
-        <button class="qty-btn plus">+</button>
-      </div>
-      <button class="btn order-btn" data-item="Service 2">Add to Cart</button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-heart"></i>
+                <span>AKANE PAIRING SITE</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Deploy Your WhatsApp Bot</span>
+                <br>Like a Tsundere!
+            </h1>
+            <p class="hero-subtitle">Professional WhatsApp bot hosting with instant deployment and 24/7 uptime. Baka!</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary akane-button" onclick="showAuthModal()">
+                    <i class="fas fa-rocket"></i>
+                    I-It's not like I WANT you to deploy!
+                </button>
+                <button class="btn btn-secondary akane-button">
+                    <i class="fas fa-play"></i>
+                    Watch the Magic~
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="whatsapp-chat">
+                        <div class="chat-header">
+                     <div class="avatar"></div>
+                            <span>Your Bot</span>
+                            <div class="status online"></div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message bot-message">
+                                <span>Bot is now online! 🚀</span>
+                            </div>
+                            <div class="message user-message">
+                                <span>Hello Bot</span>
+                            </div>
+                            <div class="message bot-message">
+                                <span>Welcome to Akane Pairing Bot! How can I help you, Senpai?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Akane Pairing Site?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Deployment</h3>
+                    <p>Deploy your WhatsApp bot in seconds with our one-click deployment system. Sugoi!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure &amp; Reliable</h3>
+                    <p>Your bot runs on secure servers with 99.9% uptime guarantee. Daijobu!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help anytime with our dedicated support team. Ganbatte!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Monitor your bot's performance with detailed analytics. Kimochi!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Richie the Owner</h2>
+            <p>Need help or have questions? Contact Richie!</p>
+            <ul>
+                <li><strong>Telegram:</strong> <a href="https://t.me/hmmletts">t.me/hmmletts</a></li>
+                <li><strong>Email:</strong> <a href="mailto:richiejnr58@gmail.com">richiejnr58@gmail.com</a></li>
+            </ul>
+        </div>
+    </section>
+
+     <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your Akane Pairing account</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="Username" required>
+                    </div>
+               <div class="input-group">
+            <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary akane-button btn-full">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="#" onclick="switchToRegister()">Create one</a>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="auth-form" style="display: none;">
+                <h2>Create Account</h2>
+                <p>Join Akane Pairing Site today</p>
+                <form onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary akane-button btn-full">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="#" onclick="switchToLogin()">Sign in</a>
+                </p>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="bots">
-    <h2>Bots</h2>
-    <div class="product">
-      <h3>WhatsApp Bot</h3>
-      <p>Automate your messages with style.</p>
-      <div class="qty-container">
-        <button class="qty-btn minus">-</button>
-        <input type="number" min="1" value="1" />
-        <button class="qty-btn plus">+</button>
-      </div>
-      <button class="btn order-btn" data-item="WhatsApp Bot">Add to Cart</button>
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard" style="display: none;">
+        <div class="dashboard-header">
+            <h1>Welcome back, <span id="usernameDisplay"></span>!</h1>
+            <button class="btn btn-secondary akane-button" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </button>
+        </div>
+
+        <div class="deployment-section">
+            <div class="deployment-card">
+                <h2>Deploy Your Bot</h2>
+                <p>Enter your phone number to start pairing your bot:</p>
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                </div>
+                <button class="btn btn-primary akane-button" onclick="startPairing()">
+                    <i class="fas fa-link"></i>
+                    Start Pairing
+                </button>
+
+                <div id="pairingStatus" style="display: none;">
+                    <p>Pairing in progress... Please wait.</p>
+                </div>
+
+                <div id="pairingCode" style="display: none;">
+                    <p>Pairing Code: <span id="code"></span></p>
+                </div>
+
+                <div id="deploymentSuccess" style="display: none;">
+                    <p>Deployment Successful! Your bot is now online.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="product">
-      <h3>Telegram Bot</h3>
-      <p>Smart and reliable bot service.</p>
-      <div class="qty-container">
-        <button class="qty-btn minus">-</button>
-        <input type="number" min="1" value="1" />
-        <button class="qty-btn plus">+</button>
-      </div>
-      <button class="btn order-btn" data-item="Telegram Bot">Add to Cart</button>
-    </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <a href="richiejnr57@gmail.com" class="btn">Email Us</a>
-  </section>
+        <footer class="footer">
+          <p>&copy; 2024 AKANE PAIRING SITE. All rights reserved.</p>
+        </footer>
 
-  <script>
-    // Quantity controls
-    document.querySelectorAll('.qty-container').forEach(container => {
-      const input = container.querySelector('input[type="number"]');
-      container.querySelector('.plus').addEventListener('click', () => {
-        input.value = Math.min(999, Number(input.value) + 1);
-      });
-      container.querySelector('.minus').addEventListener('click', () => {
-        input.value = Math.max(1, Number(input.value) - 1);
-      });
-    });
-
-    // Order to WhatsApp
-    document.querySelectorAll('.order-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.dataset.item;
-        const quantity = button.previousElementSibling.querySelector('input').value;
-        const phone = '447768540300'; // Replace with your number in international format
-        const message = `Hello ZADDY RICHIE,\nI would like to order:\n\n${item}\nQuantity: ${quantity}`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-      });
-    });
-
-    // Typing effect
-    const text = "Best services for you.";
-    let i = 0;
-    function typing() {
-      if (i < text.length) {
-        document.getElementById("typingText").textContent += text.charAt(i);
-        i++;
-        setTimeout(typing, 80);
-      }
-    }
-    typing();
-  </script>
 </body>
-</html>
+</html>   
