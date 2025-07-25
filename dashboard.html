@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akane Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="parallax-bg"></div>
+
+  <div class="dashboard-container">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>
+      Follow these steps carefully:  
+      <br>1. Click **Pair** to generate your pairing code.  
+      <br>2. Once paired, enter your session URL.  
+      <br>3. Finally, click **Deploy** to finish setup.
+    </p>
+
+    <div class="dashboard-buttons">
+      <button class="anime-button" onclick="startPairProcess()">
+        <i class="fas fa-link"></i> Pair
+      </button>
+      <button class="anime-button" onclick="deployBot()">
+        <i class="fas fa-server"></i> Deploy
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://komzyhduotkgdfuvfldk.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvbXp5aGR1b3RrZ2RmdXZmbGRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0MDI2NzEsImV4cCI6MjA2ODk3ODY3MX0.42UN_2zFzn_OcnnRI5T2PZuUv4-Cj_IjgbTtIM1Ah88';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function startPairProcess() {
+      // This calls your backend pair.js logic (replace if needed)
+      try {
+        const res = await fetch('/api/pair', { method: 'POST' });
+        if (!res.ok) throw new Error('Pairing failed');
+        const data = await res.json();
+        alert(`Pairing Code: ${data.code || 'Generated'}`);
+      } catch (err) {
+        alert('Failed to start pairing: ' + err.message);
+      }
+    }
+
+    function deployBot() {
+      // Placeholder — you’ll add session URL logic here later
+      alert('Deploy clicked! Add session logic here.');
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
